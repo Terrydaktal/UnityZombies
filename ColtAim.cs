@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ColtAim : MonoBehaviour {
-    public GameObject FPScamera;
+    public GameObject FPSCamera;
     bool Aiming = false;
 
     // Use this for initialization
@@ -14,14 +14,15 @@ public class ColtAim : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1") || Input.GetKeyDown("2")){
+        if ((Input.GetKeyDown("1") || Input.GetKeyDown("2")) && Aiming){
+            FPSCamera.GetComponent<Animation>().Play("fastUnAimColt");
             Aiming = false;
         }
 
         if (Input.GetButtonDown("Fire2"))
         {
-            if (!Aiming) FPScamera.GetComponent<Animation>().Play("aimColt");
-            else FPScamera.GetComponent<Animation>().Play("unAimColt");
+            if (!Aiming) FPSCamera.GetComponent<Animation>().Play("aimColt");
+            else FPSCamera.GetComponent<Animation>().Play("unAimColt");
             Aiming = !Aiming;
         }
     }
