@@ -1,6 +1,6 @@
 var bulletTex : GameObject[]; // creates an array to use random textures of bullet holes
 var reloading : boolean;
-var range : int = 30;
+var range : int = 300;
 var hitSounds : AudioClip[];
 var flash : ParticleSystem;
 var smoke : ParticleSystem;
@@ -24,9 +24,12 @@ function Update () {
    if (Input.GetKeyDown("1") || Input.GetKeyDown("2")){
         reloading = false;
    }
+    
+   if (Input.GetButtonDown("Fire2")){
+        WaitingForZoom();
+    }
 
    if (Input.GetButtonDown ("Fire1") && !reloading){
-         reloading = true;
          smoke.Play();
          //flash.Play();
          //particles.Play();
@@ -40,35 +43,37 @@ function Update () {
              hit.transform.SendMessage("HitByRaycast", damage, SendMessageOptions.DontRequireReceiver);
             }
             else {
-             print(hitSounds.length);
-             effectObject = hit.transform.tag;
+             effectObject = hit.transform.gameObject.tag;
              for each (var obj : GameObject in effects){
-                if (obj.name == effectObject) {
-                    Instantiate(obj, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                if (obj.name == effectObject+"Impact") {
+                    var effectIstance : GameObject = Instantiate(obj, hit.point, new Quaternion());
                 }
              }
 
-            // Instantiate(bulletTex[0], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)); //bullet hole
-            // Instantiate(bulletTex[2], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)); //sparks
+             effectIstance.transform.LookAt(hit.point + hit.normal);
+             Destroy(effectIstance, 4);
+
+             //Instantiate(effects[3], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+            
+             if (effectObject == "Metal"){Instantiate(bulletTex[2], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));} //sparks
+
              Instantiate(bulletTex[3], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)); //smoke
              AudioSource.PlayClipAtPoint(hitSounds[Random.Range(0,5)], hit.point);
  
             }
+            Waiting();
         
         }
-        Waiting();
-    }
-
-    if (Input.GetKeyDown ("r") ) {
-      reloading = true;
-      Waiting();
+        
     }
 }
 
 function Waiting(){
-    yield WaitForSeconds(1.7775);
+    yield WaitForSeconds(3.4);
     reloading = false;
 }
 
-
-
+function WaitingForZoom(){
+    yield WaitForSeconds(0.6);
+    reloading = false;
+}
