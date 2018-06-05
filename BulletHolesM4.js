@@ -21,27 +21,38 @@ function Update () {
    var hit : RaycastHit;
    Debug.DrawRay(transform.position, fwd * range, Color.green); 
 
+    if (Input.GetKeyDown("1") || Input.GetKeyDown("2")){
+            reloading = false;
+            smokeDone = true;
+            aiming = false;
+            shots = 0;
+    }
+
    if (Input.GetButtonDown ("Fire1") && !reloading){
+         reloading = false;
          smoke.Play();
          //flash.Play();
          //particles.Play();
-        // distortion.Play();
+         //distortion.Play();
          lighty.enabled = !lighty.enabled;
 
         if ( Physics.Raycast(transform.position, fwd, hit, range)){ 
+             reloading = true;
              if (hit.collider.gameObject.name == "Mesh") {
              var blood = Instantiate(bulletTex[1], hit.point, Quaternion.identity); 
              Destroy(blood, 1.0);
              hit.transform.SendMessage("HitByRaycast", damage, SendMessageOptions.DontRequireReceiver);
             }
             else {
-             effectObject = hit.collider.gameObject.tag;
+             effectObject = hit.transform.gameObject.tag;
              for each (var obj : GameObject in effects){
                 if (obj.name == effectObject+"Impact") {
-                    Instantiate(obj, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-                    print("indeed");
+                    var effectIstance : GameObject = Instantiate(obj, hit.point, new Quaternion());
                 }
              }
+
+             effectIstance.transform.LookAt(hit.point + hit.normal);
+             Destroy(effectIstance, 4);
 
              //Instantiate(effects[3], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
             
@@ -51,8 +62,10 @@ function Update () {
              AudioSource.PlayClipAtPoint(hitSounds[Random.Range(0,5)], hit.point);
  
             }
+            Waiting();
         
         }
+        
     }
 
     if (Input.GetKeyDown ("r") ) {
@@ -62,9 +75,6 @@ function Update () {
 }
 
 function Waiting(){
-    yield WaitForSeconds(3.4);
+    yield WaitForSeconds(1.7775);
     reloading = false;
 }
-
-
-
