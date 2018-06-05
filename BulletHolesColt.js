@@ -1,4 +1,4 @@
-﻿var bulletTex : GameObject[]; // creates an array to use random textures of bullet holes
+var bulletTex : GameObject[]; // creates an array to use random textures of bullet holes
 var reloading : boolean;
 var range : int = 30;
 var hitSounds : AudioClip[];
@@ -10,6 +10,8 @@ var distortion : ParticleSystem;
 var shots : int;
 var damage : int = 50;
 var aiming : boolean = false;
+var effectObject : String;
+var effects : GameObject[];
 
 function Start() {
     reloading = false;
@@ -36,36 +38,49 @@ function Update () {
     if (Input.GetButtonDown ("Fire2")) {
         WaitingForAim();
     }
+    
+   if (Input.GetButtonDown ("Fire1") && !reloading){
+         smoke.Play();
+         flash.Play();
+         distortion.Play();
+         lighty.enabled = !lighty.enabled;
 
-        if (Input.GetButtonDown ("Fire1") && !reloading && Physics.Raycast(transform.position, fwd, hit, range)){ 
-             if (hit.collider.gameObject.name == "Mesh") {
-             var blood = Instantiate(bulletTex[1], hit.point, Quaternion.identity); 
-             Destroy(blood, 1.0);
-             hit.transform.SendMessage("HitByRaycast", damage, SendMessageOptions.DontRequireReceiver);
-             //shots --;
-             flash.Play();
-             particles.Play();
-             distortion.Play();
-             lighty.enabled = !lighty.enabled;
+        if ( Physics.Raycast(transform.position, fwd, hit, range)){ 
+                reloading = true;
+                if (hit.collider.gameObject.name == "Mesh") {
+                var blood = Instantiate(bulletTex[1], hit.point, Quaternion.identity); 
+                Destroy(blood, 1.0);
+                hit.transform.SendMessage("HitByRaycast", damage, SendMessageOptions.DontRequireReceiver);
             }
             else {
-             print(hitSounds.length);
-             Instantiate(bulletTex[0], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-             Instantiate(bulletTex[2], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)); //sparks
-             Instantiate(bulletTex[3], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)); //smoke
-             //shots --;
-             flash.Play();
-             particles.Play();
-             distortion.Play();
-             lighty.enabled = !lighty.enabled;
-             AudioSource.PlayClipAtPoint(hitSounds[Random.Range(0,5)], hit.point);
+                effectObject = hit.transform.gameObject.tag;
+                for each (var obj : GameObject in effects){
+                if (obj.name == effectObject+"Impact") {
+                    var effectIstance : GameObject = Instantiate(obj, hit.point, new Quaternion());
+                }
+                }
+
+                effectIstance.transform.LookAt(hit.point + hit.normal);
+                Destroy(effectIstance, 4);
+
+                //Instantiate(effects[3], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+            
+                if (effectObject == "Metal"){Instantiate(bulletTex[2], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));} //sparks
+
+                Instantiate(bulletTex[3], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)); //smoke
+             
+                //shots --;
+                AudioSource.PlayClipAtPoint(hitSounds[Random.Range(0,5)], hit.point);
  
             }
+        
         }
-    
+    }
+
   //  if (!reloading && shots > 3){
    //        smoke.Play();
   //  }
+
 
     if (Input.GetKeyDown ("r") ) {
       reloading = true;
@@ -74,12 +89,11 @@ function Update () {
 }
 
 function Waiting(){
-    yield WaitForSeconds(3.4);
+    yield WaitForSeconds(1.7775);
     reloading = false;
 }
 
 function WaitingForAim(){
-    aiming = true;
-    yield WaitForSeconds(0.35);
-    aiming = false;
+    yield WaitForSeconds(0.3);
+    reloading = false;
 }
