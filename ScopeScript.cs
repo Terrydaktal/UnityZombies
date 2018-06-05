@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +22,7 @@ public class ScopeScript : MonoBehaviour {
     {
         if (Input.GetKeyDown("1") || Input.GetKeyDown("2"))
         {
-            if (Zooming) { GetComponent<Camera>().fieldOfView = 73; }
+            if (Zooming) animationGO.GetComponent<Animation>().Play("fastScopeOut");
             StopAllCoroutines();
             Zooming = false;
             Ready = false;
@@ -115,6 +115,3 @@ public class ScopeScript : MonoBehaviour {
         }
     }
 }
-
-
-
