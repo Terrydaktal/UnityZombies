@@ -35,8 +35,16 @@ bolt = aSources[3];
 }
  
 function Update (){
- 
-        if(Input.GetButtonDown ("Fire1") && reloading == false && drawWeapon == false && aiming == false){
+        
+        if (Input.GetKeyDown("1") || Input.GetKeyDown("2")){
+        reloading = false;
+        walking = false;
+        aim = false;
+        aiming = false;
+        drawWeapon = false;
+        }
+
+        else if(Input.GetButtonDown ("Fire1") && reloading == false && drawWeapon == false && aiming == false){
         Fire();
         }
        
