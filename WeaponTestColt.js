@@ -1,4 +1,4 @@
-﻿@script RequireComponent(AudioSource)
+@script RequireComponent(AudioSource)
 
 var drawAnim : String = "draw";
 var fireLeftAnim : String = "fire";
