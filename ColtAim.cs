@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +14,9 @@ public class ColtAim : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown("1") || Input.GetKeyDown("2")){
+            Aiming = false;
+        }
 
         if (Input.GetButtonDown("Fire2"))
         {
@@ -25,7 +27,3 @@ public class ColtAim : MonoBehaviour {
     }
   
 }
-
-
-
-
