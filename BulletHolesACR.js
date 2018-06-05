@@ -29,6 +29,10 @@ function Update () {
         WaitingForZoom();
     }
 
+   if (Input.GetButtonDown("r")){
+        reloading = true;
+    }
+
    if (Input.GetButtonDown ("Fire1") && !reloading){
          smoke.Play();
          //flash.Play();
