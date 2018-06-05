@@ -1,6 +1,6 @@
 var bulletTex : GameObject[]; // creates an array to use random textures of bullet holes
 var reloading : boolean;
-var range : int = 30;
+var range : int = 300;
 var hitSounds : AudioClip[];
 var flash : ParticleSystem;
 var smoke : ParticleSystem;
