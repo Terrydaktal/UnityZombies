@@ -41,7 +41,7 @@ public class ColtAim : MonoBehaviour {
 
         }
 
-        if (Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("r") && !reloading)
         {
             reloading = true;
             StartCoroutine(WaitingForReload());
