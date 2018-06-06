@@ -104,18 +104,19 @@ public class WeaponManager : MonoBehaviour {
         }
             if (Input.GetKeyDown("e"))
             {
-                if (!currentWeapons.Contains(name.Replace("Quad", "_fp"))) {
+                name = name.Replace("Quad", "_fp");
+                if (!currentWeapons.Contains(name)) {
 
                     Compare(equipped);
                     equippedWeapon.SetActive(false);
                     if (currentWeapons.Count == 2)
                     {
                         currentWeapons.Remove(equipped);
-                        currentWeapons.Add(name.Replace("Quad","_fp"));
+                        currentWeapons.Add(name);
                     }
-                    else { currentWeapons.Add(name.Replace("Quad", "_fp"));}
+                    else { currentWeapons.Add(name);}
 
-                    equipped = name.Replace("Quad", "_fp");
+                    equipped = name;
 
                     Compare(equipped);
                     equippedWeapon.SetActive(true);
