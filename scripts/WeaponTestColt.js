@@ -36,6 +36,10 @@ function Start()
     bolt = aSources[8];
 }
 
+function OnEnable(){
+    DrawWeapon();
+}
+
 function Update()
 {
     if (Input.GetKeyDown("1") || Input.GetKeyDown("2")){
@@ -46,22 +50,22 @@ function Update()
         drawWeapon = false;
 
     }
-    if (Input.GetButtonDown("Fire1") && reloading == false && drawWeapon == false && aiming == false)
+    if (Input.GetButtonDown("Fire1") && !reloading && !drawWeapon && !aiming)
     {
         Fire();
     }
 
-    else if (Input.GetKeyDown("r") && reloading == false && drawWeapon == false && aiming == false)
+    else if (Input.GetKeyDown("r") && !reloading && !drawWeapon && !aiming)
     {
         Reloading();
     }
 
-    else if (Input.GetButtonDown("Fire2") && reloading == false)
+    else if (Input.GetButtonDown("Fire2") && !reloading)
     {
         Aim();
      }
 
-  //  else if (Input.GetKeyDown("w") && reloading == false && drawWeapon == false && aiming == false && aim == false)
+  //  else if (Input.GetKeyDown("w") && !reloading && !drawWeapon && !aiming && !aim)
  //   {
  //       Walking();
  //   }
@@ -71,14 +75,14 @@ function Update()
         walking = false;
     }
 
- //   else if (Input.GetKeyDown("space") && reloading == false && drawWeapon == false && aiming == false && aim == false && jump == false)
+ //   else if (Input.GetKeyDown("space") && !reloading && !drawWeapon && !aiming && !aim && !jump)
   //  {
  //       JumpHip();
  //   }
 
     else
     {
-        if (reloading == false && aiming == false && drawWeapon == false && shots == 0 && aim == false && walking == false && jump == false)
+        if (!reloading && !aiming && !drawWeapon && shots == 0 && !aim && !walking && !jump)
         {
             animationGO.GetComponent.< Animation > ().Play(idleAnim);
         }
