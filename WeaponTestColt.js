@@ -120,7 +120,7 @@ function Reloading()
     yield WaitForSeconds(0.5);
     bolt.Play();
     yield WaitForSeconds(0.9);
-    reloading = false; //3.2
+    reloading = false; //3
 }
 
 function Aim()
@@ -128,13 +128,15 @@ function Aim()
     if (!aim)
     {
         aiming = true;
-        yield WaitForSeconds(0.35);
+        yield WaitForSeconds(0.2);
         aiming = false;
         aim = true;
     }
     else
     {
+        aiming = true;
         yield WaitForSeconds(0.2);
+        aiming = false;
         aim = false;
     }
 }
