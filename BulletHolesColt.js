@@ -16,6 +16,7 @@ var effects : GameObject[];
 function Start() {
     reloading = false;
     smokeDone = true;  
+    aiming = false;
 }
  
 function Update () {
@@ -36,17 +37,17 @@ function Update () {
    // }
 
     if (Input.GetButtonDown ("Fire2")) {
+        aiming = !aiming;
         WaitingForAim();
     }
     
-   if (Input.GetButtonDown ("Fire1") && !reloading){
+   if (Input.GetButtonDown ("Fire1") && !reloading && !aiming){
          smoke.Play();
          flash.Play();
          distortion.Play();
          lighty.enabled = !lighty.enabled;
 
         if ( Physics.Raycast(transform.position, fwd, hit, range)){ 
-                reloading = true;
                 if (hit.collider.gameObject.name == "Mesh") {
                 var blood = Instantiate(bulletTex[1], hit.point, Quaternion.identity); 
                 Destroy(blood, 1.0);
@@ -89,11 +90,11 @@ function Update () {
 }
 
 function Waiting(){
-    yield WaitForSeconds(1.7775);
+    yield WaitForSeconds(3);
     reloading = false;
 }
 
 function WaitingForAim(){
-    yield WaitForSeconds(0.3);
-    reloading = false;
+    yield WaitForSeconds(0.2);
+    aiming = false;
 }
