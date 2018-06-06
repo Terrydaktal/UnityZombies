@@ -1,6 +1,6 @@
 # UnityZombies
 
-A high graphics, next gen FPS zombie survival game I'm creating using the Unity engine, GIMP, Vegas and other tools, based on the classic Nazi Zombie series, with realistic, attention to detail animations, high quality weapons and 3D sounds. (Weapon, Tree and House prefabs preprovided by unitypackages without animation or decent scripts, I have created every animation and script)
+A high graphics, next gen FPS zombie survival game I'm creating using the Unity engine, GIMP, Vegas and other tools, based on the classic Nazi Zombie series, with realistic, attention to detail animations, high quality weapons and 3D sounds. (Weapon, Tree and House prefabs preprovided by unitypackages without animation or decent scripts. I have created every animation and script).
 
 ![Screenshot](images/img1.jpg)
 ![Screenshot](images/img2.jpg)
