@@ -29,7 +29,7 @@ function Update () {
         WaitingForZoom();
     }
 
-   if (Input.GetButtonDown("r")){
+   if (Input.GetKeyDown("r")){
         reloading = true;
     }
 
