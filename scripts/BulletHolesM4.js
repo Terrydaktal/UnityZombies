@@ -28,8 +28,8 @@ function Update () {
             shots = 0;
     }
 
-   if (Input.GetButtonDown ("Fire1") && !reloading){
-         reloading = false;
+    if (Input.GetButtonDown ("Fire1") && !reloading){
+        reloading = true;
          smoke.Play();
          //flash.Play();
          //particles.Play();
@@ -37,7 +37,6 @@ function Update () {
          lighty.enabled = !lighty.enabled;
 
         if ( Physics.Raycast(transform.position, fwd, hit, range)){ 
-             reloading = true;
              if (hit.collider.gameObject.name == "Mesh") {
              var blood = Instantiate(bulletTex[1], hit.point, Quaternion.identity); 
              Destroy(blood, 1.0);
@@ -62,10 +61,9 @@ function Update () {
              AudioSource.PlayClipAtPoint(hitSounds[Random.Range(0,5)], hit.point);
  
             }
-            Waiting();
-        
         }
-        
+       
+         Waiting();
     }
 
     if (Input.GetKeyDown ("r") ) {
