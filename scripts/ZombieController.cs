@@ -7,9 +7,7 @@ public class ZombieController : MonoBehaviour {
     NavMeshAgent nav;
     Transform player;
     Animator controller;
-    GameObject SpawnWall;
     int localHealth = 100;
-    int boards;
     public AudioSource hitNoKill;
     public AudioSource hitKill;
     public AudioSource hitKill2;
