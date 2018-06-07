@@ -11,6 +11,7 @@ public class animator : MonoBehaviour {
     public GameObject Mesh;
     public GameObject SpawnWall;
     public bool WaitingForNextBoard;
+    public bool Stopped = false;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +23,7 @@ public class animator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Physics.Raycast(transform.position, Vector3.down, out hit)) {
-            hit.transform.SendMessage("RequestBoardUpdate", Mesh, SendMessageOptions.DontRequireReceiver);
+            SpawnWall.SendMessage("RequestBoardUpdate", Mesh, SendMessageOptions.DontRequireReceiver);
             print(hit.transform.tag);
             if (hit.transform.tag == "SpawnWallZombieSide")
             {
@@ -37,6 +38,7 @@ public class animator : MonoBehaviour {
                 {
                     print("happens");
                     nav.isStopped = false;
+                    Stopped = false;
                 }
             }
         }
@@ -46,7 +48,7 @@ public class animator : MonoBehaviour {
     private void RemoveBoard()
     {
         print("boards > 0");
-        nav.isStopped = true;
+        if (!Stopped) nav.isStopped = true;
         SpawnWall.SendMessage("RemoveBoard", SendMessageOptions.DontRequireReceiver);
         WaitingForNextBoard = false;
     }
