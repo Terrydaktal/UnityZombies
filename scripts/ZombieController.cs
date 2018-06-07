@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,7 +7,9 @@ public class ZombieController : MonoBehaviour {
     NavMeshAgent nav;
     Transform player;
     Animator controller;
+    GameObject SpawnWall;
     int localHealth = 100;
+    int boards;
     public AudioSource hitNoKill;
     public AudioSource hitKill;
     public AudioSource hitKill2;
@@ -21,7 +23,6 @@ public class ZombieController : MonoBehaviour {
     public AudioSource zombieDying8;
     public AudioSource zombieDying9;
     public AudioSource zombieDying10;
-
     public AudioSource[] audios;
 
     // Use this for initialization
