@@ -65,7 +65,7 @@ public class boardScript : MonoBehaviour {
         {
             print("removing board");
             boardAnim[boards - 1].Play("boardAnimation" + boards);
-            boardObjects[boards - 1].SendMessage("DisableBoard", SendMessageOptions.RequireReceiver);
+            boardObjects[boards - 1].SendMessage("DisableBoard", SendMessageOptions.DontRequireReceiver);
             boards -= 1;
         }
 
@@ -73,6 +73,7 @@ public class boardScript : MonoBehaviour {
 
     private void RequestBoardUpdate(GameObject Mesh)
     {
+        print("updating");
        Mesh.SendMessage("ReceiveBoardAmount", boards, SendMessageOptions.RequireReceiver);
     }
 
