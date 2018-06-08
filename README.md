@@ -57,7 +57,7 @@ added sounds to the animations
 dev v1.1
 changed skybox
 added trees
-added lighting, wind, rain and fog
+added lightning, wind, rain and fog
 fixed frame rate issues
 made foliage move in the breeze
 added more zombie spawn points
