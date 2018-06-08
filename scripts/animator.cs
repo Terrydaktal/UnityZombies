@@ -3,35 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class animator : MonoBehaviour {
+public class animator : MonoBehaviour
+{
     Animator controller;
     int boards = 1;
     NavMeshAgent nav;
     RaycastHit hit;
-    public GameObject Mesh;
-    public GameObject SpawnWall;
     public bool WaitingForNextBoard;
     public bool Stopped = false;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         controller = GetComponentInParent<Animator>();
         nav = GetComponentInParent<NavMeshAgent>();
         WaitingForNextBoard = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (Physics.Raycast(transform.position, Vector3.down, out hit)) {
-            SpawnWall.SendMessage("RequestBoardUpdate", Mesh, SendMessageOptions.DontRequireReceiver);
-            print(hit.transform.tag);
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out hit))
+        {
             if (hit.transform.tag == "SpawnWallZombieSide")
             {
+                boardScript script = hit.transform.parent.gameObject.GetComponent<boardScript>();
+                boards = script.boards;
                 print(boards);
                 if (boards > 0 && !WaitingForNextBoard)
                 {
                     WaitingForNextBoard = true;
-                    Invoke("RemoveBoard", 1.5f);
+                    RemoveBoard(hit.transform);
                 }
 
                 if (boards < 1)
@@ -41,26 +43,28 @@ public class animator : MonoBehaviour {
                     Stopped = false;
                 }
             }
+
         }
 
     }
 
-    private void RemoveBoard()
+    private void RemoveBoard(Transform transform)
     {
         print("boards > 0");
-        if (!Stopped) nav.isStopped = true;
-        SpawnWall.SendMessage("RemoveBoard", SendMessageOptions.DontRequireReceiver);
-        WaitingForNextBoard = false;
+        if (!Stopped) { nav.isStopped = true; }
+        transform.parent.gameObject.SendMessage("RemoveBoard", SendMessageOptions.DontRequireReceiver);
+        StartCoroutine(Wait());
     }
 
-    void ReceiveBoardAmount(int boardsRemaining)
+    IEnumerator Wait()
     {
-        boards = boardsRemaining;
+        yield return new WaitForSeconds(6f);
+        WaitingForNextBoard = false;
     }
 
     void HitByRaycast(int damage)
     {
-        controller.SetInteger("health", controller.GetInteger("health")-damage);
+        controller.SetInteger("health", controller.GetInteger("health") - damage);
         print("yes");
     }
 }
