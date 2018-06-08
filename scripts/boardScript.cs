@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 
 public class boardScript : MonoBehaviour {
-	public int boards, previousBoards;
-	public Animator[] boardAnim;
+    public int boards, previousBoards;
+    public Animator[] boardAnim;
     public GameObject board1;
     public GameObject board2;
     public GameObject board3;
@@ -31,9 +31,9 @@ public class boardScript : MonoBehaviour {
 			switch(boards)
 			{
 
-            case 1:
+            		case 1:
 				boardAnim[0].Play("boardAnimation1");
-                 return;
+                                return;
 			case 2:
 				boardAnim[1].Play("boardAnimation2");
 				return;
