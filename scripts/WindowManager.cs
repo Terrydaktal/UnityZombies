@@ -5,6 +5,7 @@ using UnityEngine;
 public class WindowManager : MonoBehaviour {
     RaycastHit hit;
     bool Window;
+    int boards = 0;
 	// Use this for initialization
 	void Start () {
         Window = false;
@@ -14,12 +15,23 @@ public class WindowManager : MonoBehaviour {
 	void Update () {
         if (Physics.Raycast(transform.position, Vector3.down, out hit))
         {
-            if (hit.transform.name == "SpawnWall")
+            if (hit.transform.tag == "SpawnWall")
             {
-                Window = true;
-                if (Input.GetKeyDown("e"))
+                boardScript script = hit.transform.GetComponent<boardScript>();
+                boards = script.boards;
+
+                if (boards < 6)
                 {
-                    hit.transform.SendMessage("Acknowledge", SendMessageOptions.DontRequireReceiver);
+                    Window = true;
+                    if (Input.GetKeyDown("e"))
+                    {
+                        hit.transform.SendMessage("Acknowledge", SendMessageOptions.DontRequireReceiver);
+                    }
+                }
+
+                else
+                {
+                    Window = false;
                 }
             }
             else
