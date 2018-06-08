@@ -86,7 +86,7 @@ fixed shooting whilst rapid pressing r on all weapons
 added distortion and screen shaking when firing colt ADS  
 improved m24 and colt ADS animations by animating camera as well as weapon  
   
-dev v1.1.2  
+dev v1.1.3  
   
 added barrier prefab  
 created window barrier animation  
