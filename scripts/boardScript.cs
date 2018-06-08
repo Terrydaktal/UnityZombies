@@ -57,6 +57,8 @@ public class boardScript : MonoBehaviour {
     {
         if (boards < 6) boards += 1;
         print("no boards : " + boards);
+        boardObjects[boards - 1].SetActive(true);
+        boardObjects[boards - 1].SendMessage("EnableBoard", SendMessageOptions.DontRequireReceiver);
     }
 
     private void RemoveBoard() //verification in other script
@@ -64,17 +66,23 @@ public class boardScript : MonoBehaviour {
         if (boards > 0)
         {
             print("removing board");
-            boardAnim[boards - 1].Play("boardAnimation" + boards);
-            boardObjects[boards - 1].SendMessage("DisableBoard", SendMessageOptions.DontRequireReceiver);
-            boards -= 1;
+            Invoke("preDisableBoard", 5.4f);
+            Invoke("DisableBoard", 6f);
         }
 
     }
 
-    private void RequestBoardUpdate(GameObject Mesh)
+    private void preDisableBoard()
     {
-        print("updating");
-       Mesh.SendMessage("ReceiveBoardAmount", boards, SendMessageOptions.RequireReceiver);
+        boardAnim[boards - 1].Play("boardRemoval");
+        boardObjects[boards - 1].SendMessage("DisableBoard", SendMessageOptions.DontRequireReceiver);
     }
+
+    private void DisableBoard()
+    {
+        boardObjects[boards - 1].SetActive(false);
+        boards -= 1;
+    } 
+
 
 }
