@@ -11,6 +11,7 @@ var walkAnim : String = "walk";
 var jumpAnim : String = "jump";
 var runAnim : String = "run";
 var animationGO : GameObject;
+var FPSCamera : GameObject;
 
 var drawWeapon : boolean = false;
 var reloading : boolean = false;
@@ -35,7 +36,7 @@ bolt = aSources[3];
 }
  
 function Update (){
-        
+
         if (Input.GetKeyDown("1") || Input.GetKeyDown("2")){
         reloading = false;
         walking = false;
@@ -69,7 +70,7 @@ function Update (){
         }
 
         else {
-            if (reloading == false && aiming == false && drawWeapon == false && shots == 0 && aim == false && walking == false && jump == false){
+            if (reloading == false && drawWeapon == false && shots == 0 && walking == false && jump == false){
             animationGO.GetComponent.<Animation>().Play(idle2Anim);
             }
         }      
@@ -111,14 +112,13 @@ function Reloading(){
 
 function Aim(){
      if(!aim) {
-       animationGO.GetComponent.<Animation>().Play(idleAnim);
-	   animationGO.GetComponent.<Animation>().Play(aimAnim);
+	   FPSCamera.GetComponent.<Animation>().Play("ACRAimIn");
        aiming = true;
        yield WaitForSeconds(0.4);
        aiming = false;
 	   aim = true;
    	} else {
-       animationGO.GetComponent.<Animation>().Play(aimedAnim);
+       FPSCamera.GetComponent.<Animation>().Play("ACRAimOut");
        yield WaitForSeconds(0.2);
        aim = false;
 	}
