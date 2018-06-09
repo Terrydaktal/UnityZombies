@@ -6,8 +6,9 @@ public class WindowManager : MonoBehaviour {
     RaycastHit hit;
     bool Window;
     int boards = 0;
-	// Use this for initialization
-	void Start () {
+    public bool WaitingForRepair = true;
+    // Use this for initialization
+    void Start () {
         Window = false;
 	}
 	
@@ -23,9 +24,11 @@ public class WindowManager : MonoBehaviour {
                 if (boards < 6)
                 {
                     Window = true;
-                    if (Input.GetKeyDown("e"))
+                    if (Input.GetKeyDown("e") && WaitingForRepair)
                     {
+                        WaitingForRepair = false;
                         hit.transform.SendMessage("Acknowledge", SendMessageOptions.DontRequireReceiver);
+                        StartCoroutine(Wait());
                     }
                 }
 
@@ -40,6 +43,12 @@ public class WindowManager : MonoBehaviour {
             }
         } 
 	}
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1.5f);
+        WaitingForRepair = true;
+    }
 
     private void OnGUI()
     {
