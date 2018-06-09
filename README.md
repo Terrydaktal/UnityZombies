@@ -101,8 +101,16 @@ fixed remove board animation not working and finetuned timings
 fixed rebuild barrier alert not going away when barrier is built  
 added bullet hole information to the boards and retextured them  
 added more remove board animations  
-added other window  
+cloned another barrier into the scene for the other window  
 Spawnwall -> hit.transform.parent.gameObject means all windows can be managed dynamically with the same script  
 created more space in the house, removed some objects  
 removed mesh renderer from window quad  
 replaced object message system using direct variable accesses, reduced code clutter  
+fix barrier animation repeating  
+fix barrier board not coming back  
+added delay to rebuilding barrier  
+added souds to rebuilding the barrier with correct rolloffs and 3D spatial blend  
+separated ACR aim and sway animations to camera and gun to allow for both animations at the same time, adds realistic sway when ADS  
+fixed ACR raycast, made child of gun  
+fixed ACR shooting whilst reloading logic error  
+adjusted lighting and effects  
