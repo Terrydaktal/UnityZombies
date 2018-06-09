@@ -29,8 +29,9 @@ function Update () {
         WaitingForZoom();
     }
 
-   if (Input.GetKeyDown("r")){
+   if (Input.GetKeyDown("r") && !reloading){
         reloading = true;
+        Waiting();
     }
 
    if (Input.GetButtonDown ("Fire1") && !reloading){
@@ -65,10 +66,8 @@ function Update () {
              AudioSource.PlayClipAtPoint(hitSounds[Random.Range(0,5)], hit.point);
  
             }
-            Waiting();
-        
+          
         }
-        
     }
 }
 
