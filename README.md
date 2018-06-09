@@ -80,7 +80,11 @@ improved m24 and colt ADS animations by animating camera as well as weapon
 ![Screenshot](images/img4.jpg)
 ![Screenshot](images/img7.jpg)
 ![Screenshot](images/img8.jpg)
-
+![Screenshot](images/img5.jpg)
+![Screenshot](images/img9.jpg)
+![Screenshot](images/img10.jpg)
+![Screenshot](images/img15.jpg)
+  
 dev v1.1.3  
   
 added barrier prefab  
@@ -111,12 +115,3 @@ fixed ACR shooting whilst reloading logic error
 adjusted lighting and effects  
 ![Screenshot](images/img17.jpg)
 ![Screenshot](images/img18.jpg)
-![Screenshot](images/img3.jpg)
-![Screenshot](images/img5.jpg)
-![Screenshot](images/img9.jpg)
-![Screenshot](images/img10.jpg)
-![Screenshot](images/img11.jpg)
-![Screenshot](images/img12.jpg)
-![Screenshot](images/img13.jpg)
-![Screenshot](images/img14.jpg)
-![Screenshot](images/img15.jpg)
