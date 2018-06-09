@@ -2,23 +2,6 @@
 
 A high graphics, next gen FPS zombie survival game I'm creating using the Unity engine, GIMP, Vegas and other tools, based on the classic Nazi Zombie series, with realistic, attention to detail animations, high quality weapons and 3D sounds. (Weapon, Tree, House, FBX, prefabs preprovided by unitypackages without decent animations / scripts. I have created every animation and script).
 
-![Screenshot](images/img1.jpg)
-![Screenshot](images/img2.jpg)
-![Screenshot](images/img3.jpg)
-![Screenshot](images/img4.jpg)
-![Screenshot](images/img5.jpg)
-![Screenshot](images/img6.jpg)
-![Screenshot](images/img7.jpg)
-![Screenshot](images/img8.jpg)
-![Screenshot](images/img9.jpg)
-![Screenshot](images/img10.jpg)
-![Screenshot](images/img11.jpg)
-![Screenshot](images/img12.jpg)
-![Screenshot](images/img13.jpg)
-![Screenshot](images/img14.jpg)
-![Screenshot](images/img15.jpg)
-![Screenshot](images/img16.jpg)
-
 dev v1.0  
 added house prefabs   
 added first player controller and WASD movement, mouse look movement, jumping  
@@ -32,6 +15,8 @@ added crouching feature
 added raycast and bullet hole feature  
 finetuned ACR animation times and smoothened animations  
 fixed ACR animation bugs and logic errors  
+
+![Screenshot](images/img1.jpg)
   
 dev v1.0.1  
 added zombie prefab and added walking animation  
@@ -53,6 +38,8 @@ added sniper scope animations and on screen crosshairs
 fixed thread times and fine tuned animations in time with raycasts  
 added reloading whilst looking through scope animation  
 added sounds to the animations  
+
+![Screenshot](images/img2.jpg)
   
 dev v1.1  
 changed skybox  
@@ -61,6 +48,8 @@ added lightning, wind, rain and fog
 fixed frame rate issues  
 made foliage move in the breeze  
 added more zombie spawn points  
+
+![Screenshot](images/img16.jpg)
   
 dev v1.1.1  
 added wall guns  
@@ -72,6 +61,8 @@ fixed all weapon booleans being stuck in erroneus states when switching weapons
 configured mystery box prefab  
 added 3D spatial blend to all sounds and adjusted zombie dying sounds rolloff  
 
+![Screenshot](images/img6.jpg)
+  
 dev v1.1.2  
 added colt prefab and added custom texture  
 created and coded colt ADS, shooting whilst ADS, reloading, draw, firing animations  
@@ -85,7 +76,11 @@ fixed player moving with mouse pan
 fixed shooting whilst rapid pressing r on all weapons  
 added distortion and screen shaking when firing colt ADS  
 improved m24 and colt ADS animations by animating camera as well as weapon  
-  
+
+![Screenshot](images/img4.jpg)
+![Screenshot](images/img7.jpg)
+![Screenshot](images/img8.jpg)
+
 dev v1.1.3  
   
 added barrier prefab  
@@ -114,3 +109,14 @@ separated ACR aim and sway animations to camera and gun to allow for both animat
 fixed ACR raycast, made child of gun  
 fixed ACR shooting whilst reloading logic error  
 adjusted lighting and effects  
+![Screenshot](images/img17.jpg)
+![Screenshot](images/img18.jpg)
+![Screenshot](images/img3.jpg)
+![Screenshot](images/img5.jpg)
+![Screenshot](images/img9.jpg)
+![Screenshot](images/img10.jpg)
+![Screenshot](images/img11.jpg)
+![Screenshot](images/img12.jpg)
+![Screenshot](images/img13.jpg)
+![Screenshot](images/img14.jpg)
+![Screenshot](images/img15.jpg)
