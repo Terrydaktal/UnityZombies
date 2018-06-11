@@ -124,7 +124,7 @@ added player hit sound and blood screen effects
 added basic player HP and regeneration system  
 added zombie attack sounds with appropriate rolloff  
 adjusted zombie attack animations and attack range  
-added rain patter sounds to the scene with appropriate rolloff (logarithmic)
-added basic player death animation and game over sequence
-hid cursor during game
+added rain patter sounds to the scene with appropriate rolloff (logarithmic)  
+added basic player death animation and game over sequence  
+hid cursor during game  
 ![Screenshot](images/img19.jpg)
