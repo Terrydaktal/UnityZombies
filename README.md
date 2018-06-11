@@ -117,7 +117,7 @@ adjusted lighting and effects
 ![Screenshot](images/img18.jpg)
   
 dev v1.1.4  
-added weapon sway mechanic for M24 and colt 
+added weapon sway mechanic for M24 and colt  
 added zombie attack animation to the zombie animator state machine and programmed trigger  
 fixed R3 distance vector for attack animation  
 added player hit sound and blood screen effects  
