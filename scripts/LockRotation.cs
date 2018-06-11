@@ -2,20 +2,19 @@ using UnityEngine;
 using System.Collections;
 
 public class LockRotation : MonoBehaviour {
-
-	Quaternion rotation;
+    Quaternion rotation;
     public AudioSource rain;
     public AudioSource raindrops;
     public bool notPlaying = true;
-	void Awake()
-	{
-		rotation = transform.rotation;
-	}
+    void Awake()
+    {
+        rotation = transform.rotation;
+    }
 	
-	void LateUpdate()
-	{
-		transform.rotation = rotation;
-	}
+    void LateUpdate()
+    {
+        transform.rotation = rotation;
+    }
 
     void Update()
     {
