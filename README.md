@@ -121,8 +121,10 @@ added weapon sway mechanic for M24 and colt
 added zombie attack animation to the zombie animator state machine and programmed trigger  
 fixed R3 distance vector for attack animation  
 added player hit sound and blood screen effects  
-added player HP system  
+added basic player HP and regeneration system  
 added zombie attack sounds with appropriate rolloff  
 adjusted zombie attack animations and attack range  
-added rain patter sounds to the scene with appropriate rolloff (logarithmic)  
+added rain patter sounds to the scene with appropriate rolloff (logarithmic)
+added basic player death animation and game over sequence
+hid cursor during game
 ![Screenshot](images/img19.jpg)
