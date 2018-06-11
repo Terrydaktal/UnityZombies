@@ -115,3 +115,14 @@ fixed ACR shooting whilst reloading logic error
 adjusted lighting and effects  
 ![Screenshot](images/img17.jpg)
 ![Screenshot](images/img18.jpg)
+  
+dev v1.1.4  
+added weapon sway mechanic for M24 and colt 
+added zombie attack animation to the zombie animator state machine and programmed trigger  
+fixed R3 distance vector for attack animation  
+added player hit sound and blood screen effects  
+added player HP system  
+added zombie attack sounds with appropriate rolloff  
+adjusted zombie attack animations and attack range  
+added rain patter sounds to the scene with appropriate rolloff (logarithmic)  
+![Screenshot](images/img19.jpg)
