@@ -11,6 +11,7 @@ public class ZombieController : MonoBehaviour {
     int localHealth = 100;
     public bool attacking = false;
     public bool death = false;
+    public float AttackRange = 3.1f;
     public GameObject FPSCamera;
 
     // Use this for initialization
@@ -66,9 +67,9 @@ public class ZombieController : MonoBehaviour {
 
     void CheckHit()
     {
-        if(Mathf.Abs(Vector3.Distance(player.position, this.transform.position)) < 3.5 && !death)
+        controller.speed = 1f;
+        if (Mathf.Abs(Vector3.Distance(player.position, this.transform.position)) < AttackRange && !death)
         {
-            controller.speed = 1f;
             PlayerManager pm = FPSCamera.GetComponent<PlayerManager>();
             pm.health -= 49;
 
