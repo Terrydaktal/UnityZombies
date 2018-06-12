@@ -128,6 +128,7 @@ adjusted zombie attack animations and attack range
 added rain patter sounds to the scene with appropriate rolloff (logarithmic)  
 added basic player death animation and game over sequence  
 hid cursor during game  
-configured MK23 prefab and its wallbuy  
 configured spas13 prefab  
+added MK23 pistol, wallbuy and complete set of animations and sounds
+zombies can now attack through window, yet to add different animations
 ![Screenshot](images/img19.jpg)
