@@ -128,7 +128,76 @@ adjusted zombie attack animations and attack range
 added rain patter sounds to the scene with appropriate rolloff (logarithmic)  
 added basic player death animation and game over sequence  
 hid cursor during game  
-configured spas13 prefab  
-added MK23 pistol, wallbuy and complete set of animations and sounds
-zombies can now attack through window, yet to add different animations
+configured spas13 prefab    
+added MK23 pistol, wallbuy, raycast, complete set of animations and sounds (still glitchy atm)   
+zombies can now attack through window, yet to add different animations  
 ![Screenshot](images/img19.jpg)
+
+to do list:  
+legs -> crawler  
+add crawler system  
+head - > head comes off  
+shooting things on table  
+add more zombie death animations  
+make blood more realistic - stain  
+window climbing (player + zombie animations)  
+ammo system -> all gun empty mechanics  
+buy more ammo system at wallgun  
+score / point system  
+puddles on the ground  
+player soldier body and see feet  
+fix m24 reloading sound, prevent firing whilst reloading  
+fim m9 smoke repeating, dynamic time  
+collateral damage  
+fix gun switching issue scope still zoomed in  
+disable 2,1 which will lead to pulling out the same weapon  
+fix draw animation issues  
+add walking and jump animations to the 2 new guns  
+adding better floor terrain  
+fix crouching issue causing superjump  
+stuff leaking out of barrels, basket moves  
+keep bullet holes (perhaps)  
+fix keeping ACR bullet firing active when using sniper  
+fix colt smoke  
+zombie spawning speeds (configure round system)  
+zombie run animations and speeds and zombie hp system  
+fix issue reloading whilst buying a weapon  
+buying weapon sound  
+shake when firing (colt not aiming and m4 not aiming, acr both, mk23 both)  
+put ACR over to the new system with aiming, change animations, stop it from shooting when reloading  
+stop looking through walls issue  
+change to press and hold E rather than just pressing E like the text says (perhaps)  
+fix stupid bullet line issue on fabric  
+fix not reloading when crouching  
+get mystery box working  
+gun draw issues -> no animations  
+fix ACR draw, off the bottom of the screen  
+add zombie footstep sounds and other  sounds  
+add zombie runner, instantiation with increaing frequency  
+fix jump height  
+fix delay to hit down board initially  
+fix stuck zombies  
+fix glitch spots and revamp map navmesh, prevent climbing out of window  
+fix dead zombies knocking down barrier  
+add zombie taking down barrier animations, attack through window animations  
+gun draw sounds  
+fix ACR aiming when walking animation  
+ACR gun sway ADS fix  
+ACR aiming in speed fix and shooting whilst doing it fix  
+ACR flash and smoke  
+player death -> improve animation  
+blood animations fade and HP regenerates -> improve current basic system  
+weapon move when walking -> remove all idles and make scripted - weapon bob  
+add character bob  
+add map constraints  
+add door functionality and animations  
+improve game over sequence, remove blood etc  
+fire empty animations and sounds  
+mk23 improve animations and scripts, ADS sway , ads shake when fire, coord it all  
+fix mk23 aim whilst buy  
+move whole project over to c#  
+add spas13 and g18 into the game fully  
+revamp and tweak all weapon animations and fix inaccuracies and glitches on all  
+tweak weapon damage  
+add perks  
+revamp zombie replace linear interpolation with collider  
