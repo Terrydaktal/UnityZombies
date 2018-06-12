@@ -150,14 +150,12 @@ fix m24 reloading sound, prevent firing whilst reloading
 fim m9 smoke repeating, dynamic time  
 collateral damage  
 fix gun switching issue scope still zoomed in  
-disable 2,1 which will lead to pulling out the same weapon  
 fix draw animation issues  
 add walking and jump animations to the 2 new guns  
 adding better floor terrain  
 fix crouching issue causing superjump  
 stuff leaking out of barrels, basket moves  
 keep bullet holes (perhaps)  
-fix keeping ACR bullet firing active when using sniper  
 fix colt smoke  
 zombie spawning speeds (configure round system)  
 zombie run animations and speeds and zombie hp system  
