@@ -131,6 +131,7 @@ hid cursor during game
 configured spas13 prefab    
 added MK23 pistol, wallbuy, raycast, complete set of animations and sounds (still glitchy atm)   
 zombies can now attack through window, yet to add different animations  
+barriers are now built when the game begins  
 ![Screenshot](images/img19.jpg)
 ![Screenshot](images/img20.jpg)
 ![Screenshot](images/img21.jpg)
